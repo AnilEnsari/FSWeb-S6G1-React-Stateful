@@ -43,34 +43,68 @@ ADIM 5:
 
 ADIM 6:
 	Bu click handler 'sayici' yı sıfırlamak için 'setSayici' yi kullanacak.
-*/
+// */
+// import { useState } from "react";
 
-import React from 'react'; /* ADIM 0 buraya*/
+// const Counter = function () {
+//   const [sayac, setSayac] = useState(100);
+//   const [artisMiktari, setArtisMiktari] = useState(1);
+
+//   const arttir = () => {
+//     console.log(`setter öncesi sayac: ${sayac}`);
+//     setSayac(sayac + 1);
+//     console.log(`setter sonrası sayac: ${sayac}`);
+//   };
+
+//   const azalt = () => {
+//     setSayac(sayac - 1);
+//   };
+
+//   console.log("Bu renderda sayac değeri: ", sayac);
+
+//   return (
+//     <div>
+//       <h3>Counter: {sayac}</h3>
+//       <button onClick={arttir}> + Arttır</button>
+//       <button onClick={azalt}> - Azalt</button>
+//     </div>
+//   );
+// };
+
+// export default Counter;
+
+import React, { useState } from 'react'; /* ADIM 0 buraya*/
 
 export default function Sayac() {
   /* ADIM 1 buraya*/
+	const [sayici,setSayici]=useState(0)
 	
-	
-  const artirici = () => {
+  const artirici = () => {setSayici(sayici+1)
     /* ADIM 4 buraya */
   };
-  const azaltici = () => {
+  const azaltici = () => {setSayici(sayici-1)
     /* ADIM 5 */
   };
-  const reset = () => {
+  const reset = () => {setSayici(0)
   };
 
   const stil = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: 'royalblue', /* ADIM 2 */
+    color: 'royalblue',/* ADIM 2 */
+    
   };
+  const stildiv = document.querySelector(".stil")
+  if (sayici%2 ===1){stildiv.setAttribute("color","crimson")} else {stildiv.setAttribute("color","royalblue")}
+  let kelime = "çift"
+  if (sayici%2 ===1){kelime = "tek"} else {kelime = "çift"}
+
 
   return (
     <div className='widget-counter container'>
       <h2>Sayaç</h2>
       <div id='sayici' style={stil}>
-        Sayı {sayici} {/* ADIM 3  buraya*/ }
+        Sayı {sayici} {kelime/* ADIM 3  buraya*/ }
       </div>
       <div>
         <button id='artirici' onClick={artirici}>Artırıcı</button>
@@ -78,5 +112,5 @@ export default function Sayac() {
         <button id='resetCount' onClick={reset}>Reset</button>
       </div>
     </div>
-  );
-}
+  )  };
+
