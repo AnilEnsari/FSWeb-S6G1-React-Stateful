@@ -91,11 +91,11 @@ export default function Sayac() {
   const stil = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: 'royalblue',/* ADIM 2 */
+    color: (sayici %2 == 1)? "crimson":"royalblue"
     
   };
   const stildiv = document.querySelector(".stil")
-  if (sayici%2 ===1){stildiv.setAttribute("color","crimson")} else {stildiv.setAttribute("color","royalblue")}
+  // if (sayici%2 ===1){stildiv.setAttribute("color","crimson")} else {stildiv.setAttribute("color","royalblue")}
   let kelime = "çift"
   if (sayici%2 ===1){kelime = "tek"} else {kelime = "çift"}
 
@@ -112,5 +112,5 @@ export default function Sayac() {
         <button id='resetCount' onClick={reset}>Reset</button>
       </div>
     </div>
-  )  };
-
+  );
+  }

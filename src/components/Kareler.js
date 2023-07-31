@@ -14,7 +14,7 @@ Herhangi bir noktada yalnızca bir kare aktif olabilir (ya da hiçbiri)
 Aşaıdaki yorumları takip edin.
 */
 
-import React from 'react';
+import React,{ useState } from 'react';
 
 
 //Bu değişkeni YALNIZCA bir durum dilimini yüklemek için kullanın!
