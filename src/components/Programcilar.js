@@ -11,7 +11,7 @@ Aynı zaman içinde yalnız bir harika programcıyı öne çıkarabiliriz.
 Yorumları takip edin.
 */
 
-import React from 'react';
+import React, { useState } from 'react';
 /* ADIM 0  */
 
 
@@ -28,23 +28,30 @@ export const enIyilerListesi = [
 ];
 
 export default function Programcilar() {
+  const [programmerId,setProgrammerId]=useState(null)
+const [programmer,setProgrammer]=useState(enIyilerListesi)
   // İki state dilimine ihtiyacımız olduğundan, state hooku iki kez kullanmamız gerekecek..
   // Bir yanda programcılar listesi, diğer yanda öne çıkan programcının idsi.
 
 	
-  const oneCikaninIsmi = () => {
+  const  oneCikaninIsmi = () => {
+    let developer =""
     // Bunu sona bırakın!
     // Bu bir event handler değil, yardımcıdır. Kullanımını JSX'te gözlemleyin.
     // Öne çıkan geliştiricinin _isim_ adını döndürmek için her iki state dilimini kullanacak.
     // Closureların güzelliği, argümanlar yoluyla bilgi enjekte etmeye gerek kalmadan programın 
 	// bu bölgesinden her iki state dilimini de "görebilmemiz"dir.
+for(let i = 0;i<programmer.length;i++){if (programmer[i].id===programmerId)
+  developer= programmer[i].isim}
+  return developer
   };
 
   const stil = {
     fontSize: '1.5em',
     marginTop: '0.5em',
-    color: 'royalblue', // 🤔 kutlarken renk gold'a dönecek
+    color: (programmerId)?'gold':'royalblue', // 🤔 kutlarken renk gold'a dönecek
   };
+ 
 
   return (
     <div className='widget-programmers container'>
@@ -55,9 +62,9 @@ export default function Programcilar() {
           // Şöyle diyebiliriz: "aa bu çalışıyor!" Ama programcilar bir state diliminden gelmiyorsa,
           // asla yeni programci ekleyemeyiz, programcilari düzenleyemeyiz ya da silemeyiz. Düzeltin!
           " */
-          enIyilerListesi.map(dev =>
+        programmer.map(dev =>
             <div className='programmer' key={dev.id}>
-              {dev.isim} <button onClick={() => {/* burada dev.id 'yi öne çıkan id'ye atayın */ }}>Kutla</button>
+              {dev.isim} <button onClick={() => {setProgrammerId(dev.id)/* burada dev.id 'yi öne çıkan id'ye atayın */ }}>Kutla</button>
             </div>
           )
         }
@@ -67,8 +74,8 @@ export default function Programcilar() {
           // Üçlüler, bir şeyin "gerçekliğine" bağlı olarak "bir şeyi veya diğerini" ifade etmek için harikadır..
           // Sözde-kod: öne çıkan true ise metin 1'i oluşturun, aksi takdirde metin 2'yi oluşturun..
           // Sabit kodlanmış false'u doğru değişkenle değiştirin.
-          false
-            ? `🎉 Hadi ${oneCikaninIsmi()}'ı kutlayalım! 🥳`
+         
+          (programmerId) ? `🎉 Hadi ${oneCikaninIsmi()}'ı kutlayalım! 🥳`
             : 'Harika bir programcı seçin'
         }
       </div>
