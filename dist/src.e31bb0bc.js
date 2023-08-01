@@ -29319,7 +29319,7 @@ function Kareler() {
     _useState2 = _slicedToArray(_useState, 2),
     kareler = _useState2[0],
     setKareler = _useState2[1];
-  var _useState3 = (0, _react.useState)("null"),
+  var _useState3 = (0, _react.useState)(null),
     _useState4 = _slicedToArray(_useState3, 2),
     aktifKare = _useState4[0],
     setaktifKareler = _useState4[1];
@@ -29516,7 +29516,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53438" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62261" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
